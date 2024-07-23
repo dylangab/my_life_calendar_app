@@ -9,6 +9,7 @@ import 'package:my_life_calendar_app/models/milestone_model.dart';
 import 'package:my_life_calendar_app/models/user_model.dart';
 import 'package:my_life_calendar_app/services/calendar_service_service.dart';
 import 'package:my_life_calendar_app/services/hive_api_service.dart';
+import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -134,5 +135,20 @@ class CalendarViewViewModel extends BaseViewModel {
         milestoneList!.add(userMileStone.get(day.date.toString()));
       }
     }
+  }
+
+  String getFormatedMonth(int selectedYear, int selectedWeek, int selectedDay) {
+    return formatToMonth(calendar!
+        .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
+  }
+
+  String getFormatedDay(int selectedYear, int selectedWeek, int selectedDay) {
+    return formatToDay(calendar!
+        .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
+  }
+
+  String getFormatedDate(int selectedYear, int selectedWeek, int selectedDay) {
+    return formatToYear(calendar!
+        .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/components/app_scafold.dart';
+import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
+import 'package:my_life_calendar_app/ui/views/on_boarding/components/informationCard.dart';
 import 'package:stacked/stacked.dart';
 
 import 'on_boarding_viewmodel.dart';
@@ -24,83 +26,32 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
         verticalSpaceMassive,
         const Center(
             child: Text(
-          "Welcome to",
+          ksWelcome,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
         )),
         const Center(
             child: Text(
-          "Life Calendar",
+          ksLifeCalendar,
           style: TextStyle(fontSize: 32),
         )),
         verticalSpaceMassive,
         const SizedBox(
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.calendar_month_outlined,
-                      size: 25,
-                    ),
-                    horizontalSpaceTiny,
-                    SizedBox(
-                      width: 400,
-                      child: ListTile(
-                        title: Text("Your Own Personal Calendar",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500)),
-                        subtitle: Text(ksYourOwnPersonalCalendarDescription),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              InformationCard(
+                  body: ksYourOwnPersonalCalendarDescription,
+                  icon: Icons.calendar_month_outlined,
+                  title: ksYourOwnPersonalCalendar),
               verticalSpaceMedium,
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      size: 25,
-                    ),
-                    horizontalSpaceTiny,
-                    SizedBox(
-                      width: 400,
-                      child: ListTile(
-                        title: Text("Add your Life Milestones",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500)),
-                        subtitle: Text(ksAddYourLifeMilestonesDescription),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              InformationCard(
+                  body: ksAddYourLifeMilestonesDescription,
+                  icon: Icons.add,
+                  title: ksAddYourLifeMilestones),
               verticalSpaceMedium,
-              Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.track_changes,
-                      size: 25,
-                    ),
-                    horizontalSpaceTiny,
-                    SizedBox(
-                      width: 400,
-                      child: ListTile(
-                        title: Text("Track your Life Progress",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500)),
-                        subtitle: Text(ksTrackYourLifeProgressDescription),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              InformationCard(
+                  body: ksTrackYourLifeProgressDescription,
+                  icon: Icons.track_changes,
+                  title: ksTrackYourLifeProgress)
             ],
           ),
         ),
@@ -114,23 +65,16 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
                     viewModel.goToNextPage();
                   },
                   style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(Colors.purple[300]),
+                      backgroundColor: WidgetStatePropertyAll(kcPurpleLight),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6))),
                       side:
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
                   child: const Text(
-                    "Get Started",
-                    style: const TextStyle(fontSize: 18, color: Colors.black),
+                    ksGetStarted,
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ))),
         )
-        // AppButton(
-        //     buttonName: "Get Started",
-        //     isLoading: false,
-        //     onPressed: () {
-        //       viewModel.goToNextPage();
-        //     })
       ],
     ));
   }

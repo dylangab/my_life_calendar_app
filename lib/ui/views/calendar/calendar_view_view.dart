@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
-import 'package:my_life_calendar_app/ui/views/calendar_view/components/milestone.dart';
+import 'package:my_life_calendar_app/ui/views/calendar/components/milestone.dart';
 import 'package:stacked/stacked.dart';
 
 import 'calendar_view_viewmodel.dart';
@@ -21,7 +21,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
         toolbarHeight: 50,
         title: const Center(
           child: Text(
-            "Calendar view",
+            ksCalendarview,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ),
@@ -34,7 +34,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
           children: [
             verticalSpace(40),
             SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: screenWidth(context),
               child: Container(
                 width: 200,
                 decoration: BoxDecoration(
@@ -64,7 +64,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                               : 0,
                           builder: (context, index) {
                             return Text(
-                              "Week ${index + 1}",
+                              "$ksWeek ${index + 1}",
                               style: const TextStyle(fontSize: 16),
                             );
                           },
@@ -90,7 +90,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                               : 0,
                           builder: (context, index) {
                             return Text(
-                              "Year ${viewModel.calendar!.years[index].yearNumber}",
+                              "$ksYear ${viewModel.calendar!.years[index].yearNumber}",
                               style: const TextStyle(fontSize: 16),
                             );
                           },
@@ -138,10 +138,10 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "${formatToMonth(viewModel.calendar!.years[viewModel.selectedyear!].weeks[viewModel.selectedweek!].days[index].date!)}, ${formatToDay(viewModel.calendar!.years[viewModel.selectedyear!].weeks[viewModel.selectedweek!].days[index].date!)}",
+                                  "${viewModel.getFormatedMonth(viewModel.selectedyear!, viewModel.selectedweek!, index)}, ${viewModel.getFormatedDay(viewModel.selectedyear!, viewModel.selectedweek!, index)}",
                                 ),
                                 Text(
-                                  "(${dateformater(viewModel.calendar!.years[viewModel.selectedyear!].weeks[viewModel.selectedweek!].days[index].date!)})",
+                                  "(${viewModel.getFormatedDate(viewModel.selectedyear!, viewModel.selectedweek!, index)})",
                                   style: const TextStyle(
                                       fontWeight: FontWeight.w300),
                                 ),
@@ -171,12 +171,10 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                 itemCount: viewModel.milestoneList!.length,
                 itemBuilder: (context, index) {
                   if (viewModel.milestoneList!.isEmpty) {
-                    return Container(
-                      child: Center(
-                        child: Text(
-                          ksNoMilestone,
-                          style: TextStyle(color: Colors.black),
-                        ),
+                    return const Center(
+                      child: Text(
+                        ksNoMilestone,
+                        style: TextStyle(color: Colors.black),
                       ),
                     );
                   } else {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/components/app_scafold.dart';
-import 'package:my_life_calendar_app/ui/views/calendar_view/calendar_view_view.dart';
+import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
+import 'package:my_life_calendar_app/ui/views/calendar/calendar_view_view.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/life_calendar_view.dart';
 import 'package:my_life_calendar_app/ui/views/life_map/life_map_view.dart';
 import 'package:stacked/stacked.dart';

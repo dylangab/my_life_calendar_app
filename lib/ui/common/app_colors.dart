@@ -11,3 +11,4 @@ const kcPurple = Colors.purpleAccent;
 Color kcBlueGrey = Colors.blueGrey[400]!;
 const kcGrey = Colors.grey;
 const kcBlue = Colors.blue;
+const kcWhite = Colors.white;

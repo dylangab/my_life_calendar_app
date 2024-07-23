@@ -27,7 +27,7 @@ class Milestone extends StatelessWidget {
                   child: Container(
                     width: 15,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(6),
                             bottomLeft: Radius.circular(6)),
                         color: kcPurpleLight),
@@ -35,14 +35,14 @@ class Milestone extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 10),
                     child: SizedBox(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             title,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                           verticalSpaceTiny,
@@ -50,7 +50,7 @@ class Milestone extends StatelessWidget {
                             width: 400,
                             child: Text(
                               description,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w300),
                             ),
                           )

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:my_life_calendar_app/components/app_scafold.dart';
+import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:stacked/stacked.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 

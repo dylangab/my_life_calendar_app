@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i9;
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/ui/views/calendar_view/calendar_view_view.dart'
+import 'package:my_life_calendar_app/ui/views/calendar/calendar_view_view.dart'
     as _i8;
 import 'package:my_life_calendar_app/ui/views/create_profile/create_profile_view.dart'
     as _i5;

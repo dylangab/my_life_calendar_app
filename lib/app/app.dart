@@ -11,7 +11,8 @@ import 'package:my_life_calendar_app/ui/views/on_boarding/on_boarding_view.dart'
 import 'package:my_life_calendar_app/ui/views/create_profile/create_profile_view.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/life_calendar_view.dart';
 import 'package:my_life_calendar_app/ui/views/life_map/life_map_view.dart';
-import 'package:my_life_calendar_app/ui/views/calendar_view/calendar_view_view.dart';
+import 'package:my_life_calendar_app/ui/views/calendar/calendar_view_view.dart';
+import 'package:my_life_calendar_app/ui/dialogs/pick_birth_date/pick_birth_date_dialog.dart';
 // @stacked-import
 
 @StackedApp(
@@ -40,7 +41,8 @@ import 'package:my_life_calendar_app/ui/views/calendar_view/calendar_view_view.d
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
-    // @stacked-dialog
+    StackedDialog(classType: PickBirthDateDialog),
+// @stacked-dialog
   ],
 )
 class App {}

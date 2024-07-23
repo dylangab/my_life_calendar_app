@@ -1,6 +1,7 @@
 import 'package:dashed_circular_progress_bar/dashed_circular_progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/components/app_scafold.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/components/custom_icons.dart';
 import 'package:stacked/stacked.dart';
@@ -76,7 +77,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                                         fontSize: 20),
                                   ),
                                   const Text(
-                                    'Life Progress',
+                                    ksLifeProgress,
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w400,

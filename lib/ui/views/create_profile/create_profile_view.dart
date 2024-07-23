@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:my_life_calendar_app/components/app_scafold.dart';
+import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
@@ -24,7 +24,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
         verticalSpace(100),
         const Center(
             child: Text(
-          "Create your Profile",
+          ksCreateProfile,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         )),
         verticalSpaceSmall,
@@ -57,7 +57,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                       const Padding(
                         padding: EdgeInsets.only(left: 15),
                         child: Text(
-                          "Life Expectancy",
+                          ksLifeExpectancy,
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w500),
                         ),
@@ -89,52 +89,53 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
           padding: const EdgeInsets.only(left: 15),
           child: ListTile(
             onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    backgroundColor: Colors.white,
-                    content: SizedBox(
-                      height: 200,
-                      width: 300,
-                      child: ScrollDatePicker(
-                          selectedDate: viewModel.pickeddate,
-                          onDateTimeChanged: viewModel.onChangedForDatePicker),
-                    ),
-                    actions: [
-                      Center(
-                          child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 247, 219, 240),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        onPressed: () {
-                          viewModel.navigateBack();
-                        },
-                        child: const SizedBox(
-                          height: 40,
-                          width: 70,
-                          child: Center(
-                            child: Text(
-                              "Save",
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.black),
-                            ),
-                          ),
-                        ),
-                      ))
-                    ],
-                  );
-                },
-              );
+              viewModel.showpickDateDialog();
+              // showDialog(
+              //   context: context,
+              //   builder: (context) {
+              //     return AlertDialog(
+              //       backgroundColor: Colors.white,
+              //       content: SizedBox(
+              //         height: 200,
+              //         width: 300,
+              //         child: ScrollDatePicker(
+              //             selectedDate: viewModel.pickeddate,
+              //             onDateTimeChanged: viewModel.onChangedForDatePicker),
+              //       ),
+              //       actions: [
+              //         Center(
+              //             child: ElevatedButton(
+              //           style: ElevatedButton.styleFrom(
+              //               backgroundColor:
+              //                   const Color.fromARGB(255, 247, 219, 240),
+              //               shape: RoundedRectangleBorder(
+              //                   borderRadius: BorderRadius.circular(8))),
+              //           onPressed: () {
+              //             viewModel.navigateBack();
+              //           },
+              //           child: const SizedBox(
+              //             height: 40,
+              //             width: 70,
+              //             child: Center(
+              //               child: Text(
+              //                 ksSave,
+              //                 style:
+              //                     TextStyle(fontSize: 18, color: Colors.black),
+              //               ),
+              //             ),
+              //           ),
+              //         ))
+              //       ],
+              //     );
+              //   },
+              // );
             },
             leading: const Icon(Icons.cake_rounded),
             title: const Text(
-              "Your Birth Date",
+              ksYourBirthDate,
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
             ),
-            subtitle: Text("${dateformater(viewModel.pickeddate)}"),
+            subtitle: Text(dateformater(viewModel.pickeddate)),
           ),
         ),
         verticalSpace(350),
@@ -155,9 +156,9 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                           borderRadius: BorderRadius.circular(6))),
                       side:
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
-                  child: Text(
-                    "Start",
-                    style: const TextStyle(fontSize: 18, color: Colors.black),
+                  child: const Text(
+                    ksStart,
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ))),
         )
       ],

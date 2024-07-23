@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_life_calendar_app/ui/bottom_sheets/add_milestone/add_milestone_sheet.form.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -31,7 +32,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
       padding: const EdgeInsets.only(left: 1, right: 1),
       child: Container(
         decoration: const BoxDecoration(
-            color: Colors.white,
+            color: kcWhite,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(10))),
         child: ListView(
@@ -47,22 +48,22 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                 )),
                 child: const Center(
                     child: Text(
-                  "Add milestone",
+                  ksAddMilestone,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                 ))),
             ListTile(
               leading: const Icon(Icons.calendar_month_outlined),
               title: const Text(
-                "Milestone Date",
+                ksMilestoneDate,
                 style: TextStyle(fontSize: 20),
               ),
-              subtitle: Text("${dateformater(request.data['packedDate'])}"),
+              subtitle: Text(dateformater(request.data['packedDate'])),
             ),
             verticalSpaceSmall,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Milestone title",
+                ksMilestoneTitle,
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -81,7 +82,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(width: 1.5),
                         borderRadius: BorderRadius.all(Radius.circular(6))),
-                    hintText: "Title....",
+                    hintText: ksMilestoneTitleHinttext,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(width: 1.5),
                         borderRadius: BorderRadius.all(Radius.circular(6)))),
@@ -91,7 +92,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Milestone description",
+                ksMilestoneDescription,
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -112,7 +113,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(width: 1.5),
                         borderRadius: BorderRadius.all(Radius.circular(6))),
-                    hintText: "Description....",
+                    hintText: ksMilestoneDescriptionHinttext,
                     border: OutlineInputBorder(
                         borderSide: BorderSide(width: 1.5),
                         borderRadius: BorderRadius.all(Radius.circular(6)))),
@@ -125,7 +126,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                   height: 55,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.purple[200],
+                          backgroundColor: kcPurpleLight,
                           side: const BorderSide(width: 2),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6))),
@@ -138,9 +139,9 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                         viewModel.navigateBack();
                       },
                       child: const Text(
-                        "Add milestone",
+                        ksAddMilestone,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: kcBlack,
                           fontSize: 18,
                         ),
                       ))),
