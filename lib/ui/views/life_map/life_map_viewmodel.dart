@@ -1,6 +1,6 @@
 import 'package:my_life_calendar_app/app/app.locator.dart';
 import 'package:my_life_calendar_app/models/milestone_model.dart';
-import 'package:my_life_calendar_app/services/hive_api_service.dart';
+import 'package:my_life_calendar_app/services/hive_service.dart';
 import 'package:stacked/stacked.dart';
 
 class LifeMapViewModel extends BaseViewModel {

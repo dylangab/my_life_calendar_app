@@ -13,9 +13,8 @@ import 'package:mockito/src/dummies.dart' as _i6;
 import 'package:my_life_calendar_app/models/life_calendar_model.dart' as _i2;
 import 'package:my_life_calendar_app/models/milestone_model.dart' as _i12;
 import 'package:my_life_calendar_app/models/user_model.dart' as _i4;
-import 'package:my_life_calendar_app/services/calendar_service_service.dart'
-    as _i10;
-import 'package:my_life_calendar_app/services/hive_api_service.dart' as _i11;
+import 'package:my_life_calendar_app/services/calendar_service.dart' as _i10;
+import 'package:my_life_calendar_app/services/hive_service.dart' as _i11;
 import 'package:stacked_services/stacked_services.dart' as _i5;
 
 // ignore_for_file: type=lint

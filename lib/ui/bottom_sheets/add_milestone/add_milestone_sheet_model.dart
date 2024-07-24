@@ -1,5 +1,5 @@
 import 'package:my_life_calendar_app/app/app.locator.dart';
-import 'package:my_life_calendar_app/services/hive_api_service.dart';
+import 'package:my_life_calendar_app/services/hive_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 

@@ -11,8 +11,8 @@ import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
-import '../services/calendar_service_service.dart';
-import '../services/hive_api_service.dart';
+import '../services/calendar_service.dart';
+import '../services/hive_service.dart';
 
 final locator = StackedLocator.instance;
 
