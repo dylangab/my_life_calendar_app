@@ -1,3 +1,3 @@
 # my_life_calendar_app
 
-A new Flutter project.
+Welcome to Life Calendar, a unique app designed to help you visualize and track your life's journey week by week. Inspired by Tim Urban's Life Calendar concept, our app offers a personalized timeline where you can organize your past, present, and future. Easily add and commemorate significant milestones, and stay motivated by seeing your progress in a clear and engaging way. Life Calendar is not just a tool—it's your companion in making every week count and living a more intentional and fulfilling life.
