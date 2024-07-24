@@ -2,6 +2,7 @@ import 'package:my_life_calendar_app/app/app.dialogs.dart';
 import 'package:my_life_calendar_app/app/app.locator.dart';
 import 'package:my_life_calendar_app/app/app.router.dart';
 import 'package:my_life_calendar_app/services/hive_service.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -19,7 +20,7 @@ class CreateProfileViewModel extends BaseViewModel {
   }
 
   // Selected date for the date picker
-  DateTime pickeddate = DateTime.now();
+  DateTime? pickeddate = DateTime.now();
 
   // Service instance for navigation
   final _navigate = locator<NavigationService>();
@@ -50,10 +51,18 @@ class CreateProfileViewModel extends BaseViewModel {
     }
   }
 
-  void showpickDateDialog() {
-    _dialogService.showCustomDialog(
-        variant: DialogType.pickBirthDate, data: {'pickedDate': pickeddate});
+  void showdate() {
+    _dialogService.showCustomDialog();
+  }
 
-    print(pickeddate.toString());
+  Future<void> showpickDateDialog() async {
+    var reponse = await _dialogService.showCustomDialog(
+      variant: DialogType.pickBirthDate,
+    );
+
+    if (reponse != null && reponse.confirmed) {
+      pickeddate = reponse.data;
+      rebuildUi();
+    }
   }
 }

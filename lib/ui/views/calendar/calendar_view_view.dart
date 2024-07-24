@@ -174,7 +174,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                     return const Center(
                       child: Text(
                         ksNoMilestone,
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: kcBlack),
                       ),
                     );
                   } else {

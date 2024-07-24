@@ -38,7 +38,7 @@ class PickBirthDateDialog extends StackedView<PickBirthDateDialogModel> {
                 child: ScrollDatePicker(
                     selectedDate: viewModel.pickedDate!,
                     onDateTimeChanged: (value) {
-                      request.data['pickedDate'] = value;
+                      viewModel.onChangedForDatePicker(value);
                     }),
               ),
               verticalSpaceMedium,
@@ -49,7 +49,10 @@ class PickBirthDateDialog extends StackedView<PickBirthDateDialogModel> {
                     shape: RoundedRectangleBorder(
                         side: const BorderSide(width: 1.5),
                         borderRadius: BorderRadius.circular(8))),
-                onPressed: () {},
+                onPressed: () {
+                  completer(DialogResponse(
+                      confirmed: true, data: viewModel.pickedDate));
+                },
                 child: const SizedBox(
                   height: 40,
                   width: 70,

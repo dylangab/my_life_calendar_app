@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_life_calendar_app/ui/bottom_sheets/add_milestone/add_milestone_sheet.form.dart';
+import 'package:my_life_calendar_app/ui/bottom_sheets/add_milestone/components/customTextFields.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
@@ -70,24 +71,10 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
               ),
             ),
             verticalSpaceSmall,
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: TextFormField(
+            CustomTextFields(
                 controller: titleController,
                 focusNode: titleFocusNode,
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
-                    hintText: ksMilestoneTitleHinttext,
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6)))),
-              ),
-            ),
+                hintText: ksMilestoneTitleHinttext),
             verticalSpaceMedium,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

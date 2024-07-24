@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
@@ -135,7 +136,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
               ksYourBirthDate,
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
             ),
-            subtitle: Text(dateformater(viewModel.pickeddate)),
+            subtitle: Text(dateformater(viewModel.pickeddate!)),
           ),
         ),
         verticalSpace(350),
@@ -147,18 +148,17 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                   onPressed: () {
                     viewModel.createUserProfile(
                         viewModel.lifeExpectancySilderValue.toInt(),
-                        viewModel.pickeddate);
+                        viewModel.pickeddate!);
                   },
                   style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStatePropertyAll(Colors.purple[300]),
+                      backgroundColor: WidgetStatePropertyAll(kcPurpleLight),
                       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6))),
                       side:
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
                   child: const Text(
                     ksStart,
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 18, color: kcBlack),
                   ))),
         )
       ],
