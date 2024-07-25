@@ -1,6 +1,8 @@
 import 'package:dashed_circular_progress_bar/dashed_circular_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/components/custom_icons.dart';
@@ -26,7 +28,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Text(
             "${viewModel.getGreetingMessage()},",
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+            style: ktsHeader3, // header3
           ),
         ),
         verticalSpace(20),
@@ -40,7 +42,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                 height: 150,
                 width: 200,
                 decoration: BoxDecoration(
-                    color: Colors.blue[200]!,
+                    color: kcBlueLight,
                     border: Border.all(width: 1.5),
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(8),
@@ -56,13 +58,13 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                     startAngle: 225,
                     maxProgress: 100,
                     sweepAngle: 270,
-                    foregroundColor: const Color.fromARGB(255, 244, 116, 88),
-                    backgroundColor: const Color(0xffeeeeee),
+                    foregroundColor: kcDashedCircularProgressBar,
+                    backgroundColor: kcWhite,
                     foregroundStrokeWidth: 5,
                     backgroundStrokeWidth: 5,
                     animation: true,
                     seekSize: 6,
-                    seekColor: const Color(0xffeeeeee),
+                    seekColor: kcWhite,
                     child: Center(
                       child: ValueListenableBuilder(
                           valueListenable: viewModel.lifeProgress,
@@ -71,17 +73,11 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                                 children: [
                                   Text(
                                     '${value.toInt()}%',
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 20),
+                                    style: ktsHeader4, //header4
                                   ),
                                   const Text(
                                     ksLifeProgress,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16),
+                                    style: ktsHeader6, // header6
                                   ),
                                 ],
                               )),
@@ -93,7 +89,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                 height: 150,
                 width: 200,
                 decoration: BoxDecoration(
-                    color: Colors.purple[200],
+                    color: kcPurpleLight,
                     border: Border.all(width: 1.5),
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(8),
@@ -109,8 +105,8 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                         .showTotalWeeks(viewModel.userProfile!.lifeExpectancy!)
                         .toDouble(),
                     corners: StrokeCap.butt,
-                    foregroundColor: const Color.fromARGB(255, 244, 116, 88),
-                    backgroundColor: const Color(0xffeeeeee),
+                    foregroundColor: kcDashedCircularProgressBar,
+                    backgroundColor: kcWhite,
                     foregroundStrokeWidth: 5,
                     backgroundStrokeWidth: 6,
                     animation: true,
@@ -124,15 +120,11 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                             children: [
                               Text(
                                 '${value.toInt()}',
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 20),
+                                style: ktsHeader4, // header4
                               ),
                               Text(
                                 "/${viewModel.showTotalWeeks(viewModel.userProfile!.lifeExpectancy!).toInt()} weeks",
-                                style: const TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w400),
+                                style: ktsHeader6, // header6
                               )
                             ],
                           ),
@@ -169,9 +161,9 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                           child: CustomsIcons(
                               color: viewModel.getColor(
                                   viewModel.lifeCalendarModel!.years[yearindex]
-                                      .yearNumber!,
+                                      .yearNumber,
                                   viewModel.lifeCalendarModel!.years[yearindex]
-                                      .weeks[weekindex].isLived!),
+                                      .weeks[weekindex].isLived),
                               islived: viewModel.lifeCalendarModel!
                                   .years[yearindex].weeks[weekindex].isLived),
                         );

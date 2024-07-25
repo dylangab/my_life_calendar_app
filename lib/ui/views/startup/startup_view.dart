@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:stacked/stacked.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
@@ -27,8 +29,8 @@ class StartupView extends StackedView<StartupViewModel> {
           ),
           verticalSpaceMedium,
           Text(
-            'Life Calendar',
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+            ksLifeCalendar,
+            style: ktsHeader1,
           ),
         ],
       ),

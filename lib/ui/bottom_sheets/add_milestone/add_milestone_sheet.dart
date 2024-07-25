@@ -4,6 +4,7 @@ import 'package:my_life_calendar_app/ui/bottom_sheets/add_milestone/add_mileston
 import 'package:my_life_calendar_app/ui/bottom_sheets/add_milestone/components/customTextFields.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -34,7 +35,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
       child: Container(
         decoration: const BoxDecoration(
             color: kcWhite,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(10))),
         child: ListView(
           children: [
@@ -50,25 +51,25 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                 child: const Center(
                     child: Text(
                   ksAddMilestone,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  style: ktsHeader4,
                 ))),
             ListTile(
               leading: const Icon(Icons.calendar_month_outlined),
               title: const Text(
                 ksMilestoneDate,
-                style: TextStyle(fontSize: 20),
+                style: ktsHeader5,
               ),
-              subtitle: Text(dateformater(request.data['packedDate'])),
+              subtitle: Text(
+                dateformater(
+                  request.data['packedDate'],
+                ),
+                style: ktsBodyNormal,
+              ),
             ),
             verticalSpaceSmall,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                ksMilestoneTitle,
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
+              child: Text(ksMilestoneTitle, style: ktsHeader5),
             ),
             verticalSpaceSmall,
             CustomTextFields(
@@ -80,7 +81,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 ksMilestoneDescription,
-                style: TextStyle(fontSize: 20),
+                style: ktsHeader5,
               ),
             ),
             verticalSpaceSmall,
@@ -125,13 +126,7 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                             request.data['packedDate']);
                         viewModel.navigateBack();
                       },
-                      child: const Text(
-                        ksAddMilestone,
-                        style: TextStyle(
-                          color: kcBlack,
-                          fontSize: 18,
-                        ),
-                      ))),
+                      child: const Text(ksAddMilestone, style: ktsButtonText))),
             )
           ],
         ),

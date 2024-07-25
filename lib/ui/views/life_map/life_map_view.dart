@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/views/life_map/components/custom_timeline_tile.dart';
 import 'package:my_life_calendar_app/ui/views/life_map/components/milestone_cards.dart';
 import 'package:stacked/stacked.dart';
@@ -21,16 +22,17 @@ class LifeMapView extends StackedView<LifeMapViewModel> {
         elevation: 0,
         title: const Center(
           child: Text(
-            "Life Map",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            ksLifeMap,
+            style: ktsHeader3, //header3
           ),
         ),
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: viewModel.isBusy
-          ? Container(
-              child: const Center(
-                child: Text(ksNoMilestone),
+          ? const Center(
+              child: Text(
+                ksNoMilestone,
+                style: ktsHeader5,
               ),
             )
           : ListView.builder(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
@@ -27,12 +28,12 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
         const Center(
             child: Text(
           ksWelcome,
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+          style: ktsHeader2, // header2
         )),
         const Center(
             child: Text(
           ksLifeCalendar,
-          style: TextStyle(fontSize: 32),
+          style: ktsHeader1, //header1
         )),
         verticalSpaceMassive,
         const SizedBox(
@@ -72,7 +73,7 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
                   child: const Text(
                     ksGetStarted,
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: ktsBodyNormal, // buttontextstyle
                   ))),
         )
       ],

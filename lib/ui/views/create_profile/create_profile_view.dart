@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
@@ -26,7 +27,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
         const Center(
             child: Text(
           ksCreateProfile,
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: ktsHeader1, // header1
         )),
         verticalSpaceSmall,
         const Center(
@@ -34,7 +35,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Text(
               ksWelocomeToOurApp,
-              style: TextStyle(fontWeight: FontWeight.w400),
+              style: ktsBodyNormal, // body1
             ),
           ),
         ),
@@ -59,8 +60,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                         padding: EdgeInsets.only(left: 15),
                         child: Text(
                           ksLifeExpectancy,
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w500),
+                          style: ktsHeader5, // header5
                         ),
                       ),
                       Slider(
@@ -78,8 +78,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                 padding: const EdgeInsets.only(top: 20),
                 child: Text(
                   " ${viewModel.lifeExpectancySilderValue.ceil()}",
-                  style: const TextStyle(
-                      fontSize: 17, fontWeight: FontWeight.w500),
+                  style: ktsHeader5, // header5
                 ),
               )
             ],
@@ -91,50 +90,11 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
           child: ListTile(
             onTap: () {
               viewModel.showpickDateDialog();
-              // showDialog(
-              //   context: context,
-              //   builder: (context) {
-              //     return AlertDialog(
-              //       backgroundColor: Colors.white,
-              //       content: SizedBox(
-              //         height: 200,
-              //         width: 300,
-              //         child: ScrollDatePicker(
-              //             selectedDate: viewModel.pickeddate,
-              //             onDateTimeChanged: viewModel.onChangedForDatePicker),
-              //       ),
-              //       actions: [
-              //         Center(
-              //             child: ElevatedButton(
-              //           style: ElevatedButton.styleFrom(
-              //               backgroundColor:
-              //                   const Color.fromARGB(255, 247, 219, 240),
-              //               shape: RoundedRectangleBorder(
-              //                   borderRadius: BorderRadius.circular(8))),
-              //           onPressed: () {
-              //             viewModel.navigateBack();
-              //           },
-              //           child: const SizedBox(
-              //             height: 40,
-              //             width: 70,
-              //             child: Center(
-              //               child: Text(
-              //                 ksSave,
-              //                 style:
-              //                     TextStyle(fontSize: 18, color: Colors.black),
-              //               ),
-              //             ),
-              //           ),
-              //         ))
-              //       ],
-              //     );
-              //   },
-              // );
             },
             leading: const Icon(Icons.cake_rounded),
             title: const Text(
               ksYourBirthDate,
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
+              style: ktsHeader5, // header5
             ),
             subtitle: Text(dateformater(viewModel.pickeddate!)),
           ),
@@ -158,7 +118,7 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
                   child: const Text(
                     ksStart,
-                    style: TextStyle(fontSize: 18, color: kcBlack),
+                    style: ktsButtonText, // buttontextstyle
                   ))),
         )
       ],

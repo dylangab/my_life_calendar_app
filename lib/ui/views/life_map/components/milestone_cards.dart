@@ -1,4 +1,6 @@
 import 'package:flutter/widgets.dart';
+import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 
 class Milestonecard extends StatelessWidget {
   final String? title;
@@ -15,7 +17,7 @@ class Milestonecard extends StatelessWidget {
         height: 150,
         child: Container(
           decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 247, 219, 240),
+              color: kcMiletoneCard,
               borderRadius: BorderRadius.circular(6),
               border: Border.all(width: 1.5)),
           child: Column(
@@ -25,8 +27,7 @@ class Milestonecard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Text(
                   title!,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w500),
+                  style: ktsHeader5, //header5
                 ),
               ),
               Padding(
@@ -35,8 +36,7 @@ class Milestonecard extends StatelessWidget {
                   height: 95,
                   child: Text(
                     description!,
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w300),
+                    style: ktsBodyNormal, //body1
                   ),
                 ),
               )

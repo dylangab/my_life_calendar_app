@@ -14,16 +14,16 @@ class StartupViewModel extends BaseViewModel {
     await Future.delayed(const Duration(seconds: 3));
 
     // // Open the Hive box to get the user profile
-    var userProfile = Hive.box('user_profile');
+    // var userProfile = Hive.box('user_profile');
 
-    // Check if the user profile exists and navigate accordingly
-    if (userProfile.get('user_profile') != null) {
-      // Navigate to the home view if user profile exists
-      _navigationService.replaceWithHomeView();
-    } else {
-      // Navigate to the onboarding view if user profile does not exist
-      _navigationService.replaceWithOnBoardingView();
-    }
-    // _navigationService.replaceWithCreateProfileView();
+    // // Check if the user profile exists and navigate accordingly
+    // if (userProfile.get('user_profile') != null) {
+    //   // Navigate to the home view if user profile exists
+    //   _navigationService.replaceWithHomeView();
+    // } else {
+    //   // Navigate to the onboarding view if user profile does not exist
+    //   _navigationService.replaceWithOnBoardingView();
+    // }
+    _navigationService.replaceWithCalendarViewView();
   }
 }

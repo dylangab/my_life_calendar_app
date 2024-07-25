@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 
 class Milestone extends StatelessWidget {
@@ -40,18 +41,13 @@ class Milestone extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            title,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
+                          Text(title, style: ktsHeader5),
                           verticalSpaceTiny,
                           SizedBox(
                             width: 400,
                             child: Text(
                               description,
-                              style: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w300),
+                              style: ktsBodyNormal, //bodytext
                             ),
                           )
                         ],
