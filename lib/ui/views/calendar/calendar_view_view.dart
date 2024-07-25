@@ -162,29 +162,29 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Milestones",
+                ksMilestone,
                 style: ktsHeader4,
               ),
             ),
             verticalSpaceSmall,
             Expanded(
-              child: ListView.builder(
-                itemCount: viewModel.milestoneList!.length,
-                itemBuilder: (context, index) {
-                  if (viewModel.milestoneList!.isEmpty) {
-                    return const Center(
-                      child: Text(
-                        ksNoMilestone,
-                        style: ktsHeader6, //header6
-                      ),
-                    );
-                  } else {
+              child: Visibility(
+                visible: viewModel.milestoneList!.isNotEmpty,
+                replacement: const Center(
+                  child: Text(
+                    ksNoMilestoneWithWeek,
+                    style: ktsHeader6, //header6
+                  ),
+                ),
+                child: ListView.builder(
+                  itemCount: viewModel.milestoneList!.length,
+                  itemBuilder: (context, index) {
                     return Milestone(
                         description:
                             viewModel.milestoneList![index]!.description!,
                         title: viewModel.milestoneList![index]!.title!);
-                  }
-                },
+                  },
+                ),
               ),
             ),
           ],

@@ -10,7 +10,7 @@ const String ksAddYourLifeMilestones = "Add Your Life Milestones";
 const String ksTrackYourLifeProgress = "Track Your Life Progress";
 const String ksWelocomeToOurApp =
     "Welcome to your Life Calendar! We're excited to help you track your life's journey. Thank you for joining us; your adventure is about to begin. Please add your birth date and life expectancy to personalize your calendar. This information helps us create a meaningful and accurate representation of your life's timeline.";
-const String ksNoMilestone = "No milestone within this week";
+const String ksNoMilestoneWithWeek = "No milestone within this week";
 const String ksWelcome = "Welcome to";
 const String ksLifeCalendar = "Life Calendar";
 const String ksGetStarted = "Get Started";
@@ -31,3 +31,4 @@ const String ksMilestoneDescription = "Milestone description";
 const String ksMilestoneDescriptionHinttext = "Description....";
 const String ksMilestoneTitleHinttext = "Title....";
 const String ksLifeMap = "LIfe Map";
+const String ksMilestone = "Milestones";

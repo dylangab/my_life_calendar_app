@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 

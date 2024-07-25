@@ -31,7 +31,7 @@ class LifeMapView extends StackedView<LifeMapViewModel> {
       body: viewModel.isBusy
           ? const Center(
               child: Text(
-                ksNoMilestone,
+                ksAddMilestone,
                 style: ktsHeader5,
               ),
             )

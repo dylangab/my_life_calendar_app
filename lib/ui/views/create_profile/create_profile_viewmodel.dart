@@ -2,7 +2,6 @@ import 'package:my_life_calendar_app/app/app.dialogs.dart';
 import 'package:my_life_calendar_app/app/app.locator.dart';
 import 'package:my_life_calendar_app/app/app.router.dart';
 import 'package:my_life_calendar_app/services/hive_service.dart';
-import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 

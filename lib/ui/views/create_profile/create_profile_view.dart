@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
-
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
-import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:stacked/stacked.dart';
 
 import 'create_profile_viewmodel.dart';
