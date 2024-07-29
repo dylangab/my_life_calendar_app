@@ -796,7 +796,7 @@ class MockCalendarServiceService extends _i1.Mock
 /// A class which mocks [HiveApiService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHiveApiService extends _i1.Mock implements _i11.HiveApiService {
+class MockHiveApiService extends _i1.Mock implements _i11.HiveService {
   @override
   _i3.Box<dynamic> get userProfile => (super.noSuchMethod(
         Invocation.getter(#userProfile),

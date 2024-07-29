@@ -3,7 +3,7 @@ import 'package:my_life_calendar_app/models/day_model.dart';
 import 'package:my_life_calendar_app/models/milestone_model.dart';
 import 'package:my_life_calendar_app/models/user_model.dart';
 
-class HiveApiService {
+class HiveService {
   var userProfile = Hive.box('user_profile');
   var userMileStone = Hive.box<Milestone>('user_milestone');
   var userDates = Hive.box<DateTime>('user_dates');

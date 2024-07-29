@@ -1,11 +1,14 @@
 import 'package:dashed_circular_progress_bar/dashed_circular_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/components/custom_icons.dart';
+import 'package:my_life_calendar_app/ui/views/life_calendar/components/widget_elevate.dart';
 import 'package:stacked/stacked.dart';
-
+import 'package:overflow_text_animated/overflow_text_animated.dart';
 import 'life_calendar_viewmodel.dart';
 
 class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
@@ -26,115 +29,107 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Text(
             "${viewModel.getGreetingMessage()},",
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+            style: ktsHeader3, // header3
           ),
         ),
-        verticalSpace(20),
+        verticalSpaceMedium,
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 15),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 150,
-                width: 200,
-                decoration: BoxDecoration(
-                    color: Colors.blue[200]!,
-                    border: Border.all(width: 1.5),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        bottomLeft: Radius.circular(8),
-                        bottomRight: Radius.circular(8))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: DashedCircularProgressBar.aspectRatio(
-                    aspectRatio: 0.5, // width ÷ height
-                    valueNotifier: viewModel.lifeProgress,
+              WidgetElevate(
+                child: Container(
+                  height: 150,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: kcBlueLight,
+                      border: Border.all(width: 1.5),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          bottomLeft: Radius.circular(8),
+                          bottomRight: Radius.circular(8))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DashedCircularProgressBar.aspectRatio(
+                      aspectRatio: 0.5, // width ÷ height
+                      valueNotifier: viewModel.lifeProgress,
 
-                    progress: viewModel.lifeProgress.value,
-                    startAngle: 225,
-                    maxProgress: 100,
-                    sweepAngle: 270,
-                    foregroundColor: const Color.fromARGB(255, 244, 116, 88),
-                    backgroundColor: const Color(0xffeeeeee),
-                    foregroundStrokeWidth: 5,
-                    backgroundStrokeWidth: 5,
-                    animation: true,
-                    seekSize: 6,
-                    seekColor: const Color(0xffeeeeee),
-                    child: Center(
-                      child: ValueListenableBuilder(
-                          valueListenable: viewModel.lifeProgress,
-                          builder: (_, double value, __) => Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    '${value.toInt()}%',
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 20),
-                                  ),
-                                  const Text(
-                                    ksLifeProgress,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16),
-                                  ),
-                                ],
-                              )),
+                      progress: viewModel.lifeProgress.value,
+                      startAngle: 225,
+                      maxProgress: 100,
+                      sweepAngle: 270,
+                      foregroundColor: kcDashedCircularProgressBar,
+                      backgroundColor: kcWhite,
+                      foregroundStrokeWidth: 5,
+                      backgroundStrokeWidth: 5,
+                      animation: true,
+                      seekSize: 6,
+                      seekColor: kcWhite,
+                      child: Center(
+                        child: ValueListenableBuilder(
+                            valueListenable: viewModel.lifeProgress,
+                            builder: (_, double value, __) => Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      '${value.toInt()}%',
+                                      style: ktsHeader4, //header4
+                                    ),
+                                    const Text(
+                                      ksLifeProgress,
+                                      style: ktsHeader6, // header6
+                                    ),
+                                  ],
+                                )),
+                      ),
                     ),
                   ),
                 ),
               ),
-              Container(
-                height: 150,
-                width: 200,
-                decoration: BoxDecoration(
-                    color: Colors.purple[200],
-                    border: Border.all(width: 1.5),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        bottomLeft: Radius.circular(8),
-                        bottomRight: Radius.circular(8))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: DashedCircularProgressBar.aspectRatio(
-                    aspectRatio: 1, // width ÷ height
-                    valueNotifier: viewModel.weeksLeft,
-                    progress: viewModel.weeksLeft.value,
-                    maxProgress: viewModel
-                        .showTotalWeeks(viewModel.userProfile!.lifeExpectancy!)
-                        .toDouble(),
-                    corners: StrokeCap.butt,
-                    foregroundColor: const Color.fromARGB(255, 244, 116, 88),
-                    backgroundColor: const Color(0xffeeeeee),
-                    foregroundStrokeWidth: 5,
-                    backgroundStrokeWidth: 6,
-                    animation: true,
-                    child: Center(
-                      child: ValueListenableBuilder(
-                        valueListenable: viewModel.weeksLeft,
-                        builder: (_, double value, __) => Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                '${value.toInt()}',
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 20),
-                              ),
-                              Text(
-                                "/${viewModel.showTotalWeeks(viewModel.userProfile!.lifeExpectancy!).toInt()} weeks",
-                                style: const TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w400),
-                              )
-                            ],
+              WidgetElevate(
+                child: Container(
+                  height: 150,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: kcPurpleLight,
+                      border: Border.all(width: 1.5),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          bottomLeft: Radius.circular(8),
+                          bottomRight: Radius.circular(8))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DashedCircularProgressBar.aspectRatio(
+                      aspectRatio: 1, // width ÷ height
+                      valueNotifier: viewModel.weeksLeft,
+                      progress: viewModel.weeksLeft.value,
+                      maxProgress: viewModel.showTotalWeeks().toDouble(),
+                      corners: StrokeCap.butt,
+                      foregroundColor: kcDashedCircularProgressBar,
+                      backgroundColor: kcWhite,
+                      foregroundStrokeWidth: 5,
+                      backgroundStrokeWidth: 6,
+                      animation: true,
+                      child: Center(
+                        child: ValueListenableBuilder(
+                          valueListenable: viewModel.weeksLeft,
+                          builder: (_, double value, __) => Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '${value.toInt()}',
+                                  style: ktsHeader4, // header4
+                                ),
+                                Text(
+                                  "/${viewModel.showTotalWeeks().toInt()} weeks",
+                                  style: ktsHeader6, // header6
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -145,7 +140,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
             ],
           ),
         ),
-        verticalSpace(50),
+        verticalSpaceMedium,
         InkWell(
           onDoubleTap: () {
             viewModel.navigateBack();
@@ -169,9 +164,9 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                           child: CustomsIcons(
                               color: viewModel.getColor(
                                   viewModel.lifeCalendarModel!.years[yearindex]
-                                      .yearNumber!,
+                                      .yearNumber,
                                   viewModel.lifeCalendarModel!.years[yearindex]
-                                      .weeks[weekindex].isLived!),
+                                      .weeks[weekindex].isLived),
                               islived: viewModel.lifeCalendarModel!
                                   .years[yearindex].weeks[weekindex].isLived),
                         );

@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/views/calendar/calendar_view_view.dart';
 import 'package:my_life_calendar_app/ui/views/life_calendar/life_calendar_view.dart';
-import 'package:my_life_calendar_app/ui/views/life_map/life_map_view.dart';
 import 'package:stacked/stacked.dart';
-import 'package:my_life_calendar_app/ui/common/app_colors.dart';
-import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 
 import 'home_viewmodel.dart';
 

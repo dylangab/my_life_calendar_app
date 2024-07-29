@@ -10,7 +10,7 @@ class CreateProfileViewModel extends BaseViewModel {
   double lifeExpectancySilderValue = 0;
   final _dialogService = locator<DialogService>();
   // Service instance for Hive API
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
 
   // Updates the slider value and rebuilds the UI
   void updateSliderValue(double value) {
@@ -19,7 +19,7 @@ class CreateProfileViewModel extends BaseViewModel {
   }
 
   // Selected date for the date picker
-  DateTime pickeddate = DateTime.now();
+  DateTime? pickeddate = DateTime.now();
 
   // Service instance for navigation
   final _navigate = locator<NavigationService>();
@@ -50,10 +50,28 @@ class CreateProfileViewModel extends BaseViewModel {
     }
   }
 
-  void showpickDateDialog() {
-    _dialogService.showCustomDialog(
-        variant: DialogType.pickBirthDate, data: {'pickedDate': pickeddate});
+  void showdate() {
+    _dialogService.showCustomDialog();
+  }
 
-    print(pickeddate.toString());
+  Future<void> loadingButton() async {
+    setBusy(true);
+    await Future.delayed(const Duration(seconds: 3)); // Simulating network call
+    setBusy(false);
+  }
+
+  Future<void> startLoadingButton() async {
+    await runBusyFuture(loadingButton());
+  }
+
+  Future<void> showpickDateDialog() async {
+    var reponse = await _dialogService.showCustomDialog(
+      variant: DialogType.pickBirthDate,
+    );
+
+    if (reponse != null && reponse.confirmed) {
+      pickeddate = reponse.data;
+      rebuildUi();
+    }
   }
 }

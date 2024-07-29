@@ -8,6 +8,7 @@ import 'package:my_life_calendar_app/models/user_model.dart';
 import 'package:my_life_calendar_app/services/calendar_service.dart';
 import 'package:my_life_calendar_app/services/hive_service.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -23,7 +24,7 @@ class LifeCalendarViewModel extends BaseViewModel {
 
   // Service instances
   final _calendarApi = locator<CalendarServiceService>();
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
   final _navigation = locator<NavigationService>();
 
   // Value notifiers for life progress and weeks left
@@ -45,15 +46,15 @@ class LifeCalendarViewModel extends BaseViewModel {
   void getUserProfile() async {
     userProfile = _hiveApi.fetchUserData();
     getCalendar(userProfile!.birthdate, userProfile!.lifeExpectancy!);
-    showLifeProgress(userProfile!.birthdate, userProfile!.lifeExpectancy!);
+    showLifeProgress();
     showWeeksLift(userProfile!.birthdate, userProfile!.lifeExpectancy!);
-    showTotalWeeks(userProfile!.lifeExpectancy!);
+    showTotalWeeks();
   }
 
   // Calculates and updates the life progress
-  void showLifeProgress(DateTime birthdate, int lifeExpectancy) {
-    lifeProgress.value =
-        _calendarApi.getLifeProgress(lifeExpectancy, birthdate);
+  void showLifeProgress() {
+    lifeProgress.value = _calendarApi.getLifeProgress(
+        userProfile!.lifeExpectancy!, userProfile!.birthdate);
   }
 
   // Determines the color based on the year number and whether the year is lived
@@ -88,8 +89,8 @@ class LifeCalendarViewModel extends BaseViewModel {
   }
 
   // Calculates and returns the total weeks in the life calendar
-  int showTotalWeeks(int lifeExpectancy) {
-    int totalWeeks = _calendarApi.getTotalWeeks(lifeExpectancy);
+  int showTotalWeeks() {
+    int totalWeeks = _calendarApi.getTotalWeeks(userProfile!.lifeExpectancy!);
     return totalWeeks;
   }
 

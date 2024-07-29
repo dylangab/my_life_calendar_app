@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 
 class InformationCard extends StatelessWidget {
@@ -24,9 +24,7 @@ class InformationCard extends StatelessWidget {
           SizedBox(
             width: 400,
             child: ListTile(
-              title: Text(title,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w500)),
+              title: Text(title, style: ktsHeader5), // header5
               subtitle: Text(body),
             ),
           ),

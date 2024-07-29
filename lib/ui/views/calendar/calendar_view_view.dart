@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:my_life_calendar_app/ui/views/calendar/components/milestone.dart';
 import 'package:stacked/stacked.dart';
@@ -22,7 +23,8 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
         title: const Center(
           child: Text(
             ksCalendarview,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style:
+                TextStyle(fontSize: 24, fontWeight: FontWeight.bold), //header3
           ),
         ),
       ),
@@ -45,7 +47,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 70,
                       width: 70,
                       child: ListWheelScrollView.useDelegate(
@@ -65,7 +67,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                           builder: (context, index) {
                             return Text(
                               "$ksWeek ${index + 1}",
-                              style: const TextStyle(fontSize: 16),
+                              style: ktsHeader6, //header6
                             );
                           },
                         ),
@@ -91,7 +93,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                           builder: (context, index) {
                             return Text(
                               "$ksYear ${viewModel.calendar!.years[index].yearNumber}",
-                              style: const TextStyle(fontSize: 16),
+                              style: ktsHeader6, //header6
                             );
                           },
                         ),
@@ -120,7 +122,7 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                           .years[viewModel.selectedyear!]
                           .weeks[viewModel.selectedweek!]
                           .days[index]
-                          .date!);
+                          .date);
                       viewModel.showBottomSheet(viewModel.pickedDate!);
                     },
                     child: Padding(
@@ -138,12 +140,11 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "${viewModel.getFormatedMonth(viewModel.selectedyear!, viewModel.selectedweek!, index)}, ${viewModel.getFormatedDay(viewModel.selectedyear!, viewModel.selectedweek!, index)}",
-                                ),
+                                    "${viewModel.getFormatedMonth(index)}, ${viewModel.getFormatedDay(index)}",
+                                    style: ktsHeader6),
                                 Text(
-                                  "(${viewModel.getFormatedDate(viewModel.selectedyear!, viewModel.selectedweek!, index)})",
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.w300),
+                                  "(${viewModel.getFormatedDate(index)})",
+                                  style: ktsCaption, //caption1
                                 ),
                               ],
                             ),
@@ -161,29 +162,29 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Milestones",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                ksMilestone,
+                style: ktsHeader4,
               ),
             ),
             verticalSpaceSmall,
             Expanded(
-              child: ListView.builder(
-                itemCount: viewModel.milestoneList!.length,
-                itemBuilder: (context, index) {
-                  if (viewModel.milestoneList!.isEmpty) {
-                    return const Center(
-                      child: Text(
-                        ksNoMilestone,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    );
-                  } else {
+              child: Visibility(
+                visible: viewModel.milestoneList!.isNotEmpty,
+                replacement: const Center(
+                  child: Text(
+                    ksNoMilestoneWithWeek,
+                    style: ktsHeader6, //header6
+                  ),
+                ),
+                child: ListView.builder(
+                  itemCount: viewModel.milestoneList!.length,
+                  itemBuilder: (context, index) {
                     return Milestone(
                         description:
                             viewModel.milestoneList![index]!.description!,
                         title: viewModel.milestoneList![index]!.title!);
-                  }
-                },
+                  },
+                ),
               ),
             ),
           ],

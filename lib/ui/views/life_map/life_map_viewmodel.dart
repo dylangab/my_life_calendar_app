@@ -11,7 +11,7 @@ class LifeMapViewModel extends BaseViewModel {
   List<Milestone?>? milestoneList;
 
   // Service instance for Hive API
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
 
   // Fetches the dates and corresponding milestones to build the timeline
   Future timeline() async {

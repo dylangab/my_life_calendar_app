@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
+import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:stacked/stacked.dart';
@@ -38,7 +39,7 @@ class PickBirthDateDialog extends StackedView<PickBirthDateDialogModel> {
                 child: ScrollDatePicker(
                     selectedDate: viewModel.pickedDate!,
                     onDateTimeChanged: (value) {
-                      request.data['pickedDate'] = value;
+                      viewModel.onChangedForDatePicker(value);
                     }),
               ),
               verticalSpaceMedium,
@@ -49,14 +50,17 @@ class PickBirthDateDialog extends StackedView<PickBirthDateDialogModel> {
                     shape: RoundedRectangleBorder(
                         side: const BorderSide(width: 1.5),
                         borderRadius: BorderRadius.circular(8))),
-                onPressed: () {},
+                onPressed: () {
+                  completer(DialogResponse(
+                      confirmed: true, data: viewModel.pickedDate));
+                },
                 child: const SizedBox(
                   height: 40,
                   width: 70,
                   child: Center(
                     child: Text(
                       ksSave,
-                      style: TextStyle(fontSize: 18, color: kcBlack),
+                      style: ktsButtonText, // buttontextstyle
                     ),
                   ),
                 ),

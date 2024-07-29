@@ -15,7 +15,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 class CalendarViewViewModel extends BaseViewModel {
   // Service instances
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
   final _navigation = locator<NavigationService>();
   final dialog_service = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
@@ -137,17 +137,17 @@ class CalendarViewViewModel extends BaseViewModel {
     }
   }
 
-  String getFormatedMonth(int selectedYear, int selectedWeek, int selectedDay) {
+  String getFormatedMonth(int selectedDay) {
     return formatToMonth(calendar!
         .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
   }
 
-  String getFormatedDay(int selectedYear, int selectedWeek, int selectedDay) {
+  String getFormatedDay(int selectedDay) {
     return formatToDay(calendar!
         .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
   }
 
-  String getFormatedDate(int selectedYear, int selectedWeek, int selectedDay) {
+  String getFormatedDate(int selectedDay) {
     return formatToYear(calendar!
         .years[selectedyear!].weeks[selectedweek!].days[selectedDay].date!);
   }
