@@ -107,18 +107,4 @@ class LifeCalendarViewModel extends BaseViewModel {
       return 'Good Evening';
     }
   }
-
-  // String motivatnalTextGenerator(double lifeProgress) {
-  //   if (lifeProgress < 30) {
-  //     return ksMotivationForUnder30;
-  //   } else if (lifeProgress >= 30 && lifeProgress < 50) {
-  //     return ksMotivationForUnder50;
-  //   } else if (lifeProgress >= 50 && lifeProgress < 70) {
-  //     return ksMotivationForGreater50;
-  //   } else if (lifeProgress >= 70) {
-  //     return ksMotivationForUnder70;
-  //   } else {
-  //     return ksMotivationForGreater70;
-  //   }
-  // }
 }

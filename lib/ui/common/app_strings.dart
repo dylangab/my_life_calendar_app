@@ -32,13 +32,3 @@ const String ksMilestoneDescriptionHinttext = "Description....";
 const String ksMilestoneTitleHinttext = "Title....";
 const String ksLifeMap = "LIfe Map";
 const String ksMilestone = "Milestones";
-// const String ksMotivationForUnder30 =
-//     "Your journey has just begun. Use each moment wisely and embrace the endless possibilities ahead.";
-// const String ksMotivationForUnder50 =
-//     "You're making great strides.  Keep pushing forward,  the best is yet to come.";
-// const String ksMotivationForGreater50 =
-//     "You've come a long way. Stay strong and continue to achieve greatness.";
-// const String ksMotivationForUnder70 =
-//     "You've accomplished so much. Reflect on your journey with pride and keep reaching for new heights.";
-// const String ksMotivationForGreater70 =
-//     "Keep going, your progress is an inspiration.";

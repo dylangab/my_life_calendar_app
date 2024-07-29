@@ -144,15 +144,6 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
           ),
         ),
         verticalSpaceMedium,
-        // OverflowTextAnimated(
-        //   text: viewModel.motivatnalTextGenerator(viewModel.lifeProgress.value),
-        //   style: ktsHeader6,
-        //   curve: Curves.fastEaseInToSlowEaseOut,
-        //   animation: OverFlowTextAnimations.infiniteLoop,
-        //   animateDuration: const Duration(milliseconds: 3000),
-        //   delay: const Duration(seconds: 1),
-        // ),
-
         InkWell(
           onDoubleTap: () {
             viewModel.navigateBack();

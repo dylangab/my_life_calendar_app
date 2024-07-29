@@ -24,6 +24,5 @@ class StartupViewModel extends BaseViewModel {
       // Navigate to the onboarding view if user profile does not exist
       _navigationService.replaceWithOnBoardingView();
     }
-    //_navigationService.replaceWithOnBoardingView();
   }
 }
