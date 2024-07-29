@@ -105,10 +105,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                       aspectRatio: 1, // width ÷ height
                       valueNotifier: viewModel.weeksLeft,
                       progress: viewModel.weeksLeft.value,
-                      maxProgress: viewModel
-                          .showTotalWeeks(
-                              viewModel.userProfile!.lifeExpectancy!)
-                          .toDouble(),
+                      maxProgress: viewModel.showTotalWeeks().toDouble(),
                       corners: StrokeCap.butt,
                       foregroundColor: kcDashedCircularProgressBar,
                       backgroundColor: kcWhite,
@@ -128,7 +125,7 @@ class LifeCalendarView extends StackedView<LifeCalendarViewModel> {
                                   style: ktsHeader4, // header4
                                 ),
                                 Text(
-                                  "/${viewModel.showTotalWeeks(viewModel.userProfile!.lifeExpectancy!).toInt()} weeks",
+                                  "/${viewModel.showTotalWeeks().toInt()} weeks",
                                   style: ktsHeader6, // header6
                                 )
                               ],

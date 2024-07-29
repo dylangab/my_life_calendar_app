@@ -46,15 +46,15 @@ class LifeCalendarViewModel extends BaseViewModel {
   void getUserProfile() async {
     userProfile = _hiveApi.fetchUserData();
     getCalendar(userProfile!.birthdate, userProfile!.lifeExpectancy!);
-    showLifeProgress(userProfile!.birthdate, userProfile!.lifeExpectancy!);
+    showLifeProgress();
     showWeeksLift(userProfile!.birthdate, userProfile!.lifeExpectancy!);
-    showTotalWeeks(userProfile!.lifeExpectancy!);
+    showTotalWeeks();
   }
 
   // Calculates and updates the life progress
-  void showLifeProgress(DateTime birthdate, int lifeExpectancy) {
-    lifeProgress.value =
-        _calendarApi.getLifeProgress(lifeExpectancy, birthdate);
+  void showLifeProgress() {
+    lifeProgress.value = _calendarApi.getLifeProgress(
+        userProfile!.lifeExpectancy!, userProfile!.birthdate);
   }
 
   // Determines the color based on the year number and whether the year is lived
@@ -89,8 +89,8 @@ class LifeCalendarViewModel extends BaseViewModel {
   }
 
   // Calculates and returns the total weeks in the life calendar
-  int showTotalWeeks(int lifeExpectancy) {
-    int totalWeeks = _calendarApi.getTotalWeeks(lifeExpectancy);
+  int showTotalWeeks() {
+    int totalWeeks = _calendarApi.getTotalWeeks(userProfile!.lifeExpectancy!);
     return totalWeeks;
   }
 
