@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
+import 'package:my_life_calendar_app/ui/components/app_circular_progress_indicator.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
@@ -103,7 +104,8 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
           child: SizedBox(
               height: 55,
               child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    await viewModel.startLoadingButton();
                     viewModel.createUserProfile(
                         viewModel.lifeExpectancySilderValue.toInt(),
                         viewModel.pickeddate!);
@@ -114,10 +116,12 @@ class CreateProfileView extends StackedView<CreateProfileViewModel> {
                           borderRadius: BorderRadius.circular(6))),
                       side:
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
-                  child: const Text(
-                    ksStart,
-                    style: ktsButtonText, // buttontextstyle
-                  ))),
+                  child: viewModel.isBusy
+                      ? const AppCircularProgressIndicator()
+                      : const Text(
+                          ksStart,
+                          style: ktsButtonText, // buttontextstyle
+                        ))),
         )
       ],
     ));

@@ -31,7 +31,7 @@ import 'package:my_life_calendar_app/ui/dialogs/pick_birth_date/pick_birth_date_
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: CalendarServiceService),
-    LazySingleton(classType: HiveApiService),
+    LazySingleton(classType: HiveService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -6,6 +6,7 @@ import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
+import 'package:my_life_calendar_app/ui/components/app_circular_progress_indicator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -118,7 +119,8 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                           side: const BorderSide(width: 2),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6))),
-                      onPressed: () {
+                      onPressed: () async {
+                        await viewModel.startLoadingButton();
                         viewModel.addDate(request.data['packedDate']);
                         viewModel.addMilestone(
                             descriptionController.value.text.trim(),
@@ -126,7 +128,9 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
                             request.data['packedDate']);
                         viewModel.navigateBack();
                       },
-                      child: const Text(ksAddMilestone, style: ktsButtonText))),
+                      child: viewModel.isBusy
+                          ? const AppCircularProgressIndicator()
+                          : const Text(ksAddMilestone, style: ktsButtonText))),
             )
           ],
         ),

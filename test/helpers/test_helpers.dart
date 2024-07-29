@@ -13,7 +13,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CalendarServiceService>(onMissingStub: OnMissingStub.returnDefault),
-  MockSpec<HiveApiService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<HiveService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -83,9 +83,9 @@ MockCalendarServiceService getAndRegisterCalendarServiceService() {
 }
 
 MockHiveApiService getAndRegisterHiveApiService() {
-  _removeRegistrationIfExists<HiveApiService>();
+  _removeRegistrationIfExists<HiveService>();
   final service = MockHiveApiService();
-  locator.registerSingleton<HiveApiService>(service);
+  locator.registerSingleton<HiveService>(service);
   return service;
 }
 // @stacked-mock-create

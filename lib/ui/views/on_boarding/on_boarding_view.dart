@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
 import 'package:my_life_calendar_app/ui/common/app_textstyles.dart';
+import 'package:my_life_calendar_app/ui/components/app_circular_progress_indicator.dart';
 import 'package:my_life_calendar_app/ui/components/app_scafold.dart';
 import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:my_life_calendar_app/ui/common/ui_helpers.dart';
@@ -62,7 +63,8 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
           child: SizedBox(
               height: 55,
               child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    await viewModel.startLoadingButton();
                     viewModel.goToNextPage();
                   },
                   style: ButtonStyle(
@@ -71,10 +73,12 @@ class OnBoardingView extends StackedView<OnBoardingViewModel> {
                           borderRadius: BorderRadius.circular(6))),
                       side:
                           const WidgetStatePropertyAll(BorderSide(width: 2.5))),
-                  child: const Text(
-                    ksGetStarted,
-                    style: ktsBodyNormal, // buttontextstyle
-                  ))),
+                  child: viewModel.isBusy
+                      ? const AppCircularProgressIndicator()
+                      : const Text(
+                          ksGetStarted,
+                          style: ktsBodyNormal, // buttontextstyle
+                        ))),
         )
       ],
     ));

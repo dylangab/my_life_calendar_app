@@ -5,7 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 class AddMilestoneSheetModel extends BaseViewModel {
   DateTime? selectedDay;
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
   final _navigation = locator<NavigationService>();
 
   void showSelectedDate(DateTime date) {
@@ -30,5 +30,15 @@ class AddMilestoneSheetModel extends BaseViewModel {
 
   void navigateBack() {
     _navigation.back();
+  }
+
+  Future<void> loadingButton() async {
+    setBusy(true);
+    await Future.delayed(const Duration(seconds: 3)); // Simulating network call
+    setBusy(false);
+  }
+
+  Future<void> startLoadingButton() async {
+    await runBusyFuture(loadingButton());
   }
 }

@@ -15,7 +15,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 class CalendarViewViewModel extends BaseViewModel {
   // Service instances
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
   final _navigation = locator<NavigationService>();
   final dialog_service = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();

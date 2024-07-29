@@ -10,7 +10,7 @@ class CreateProfileViewModel extends BaseViewModel {
   double lifeExpectancySilderValue = 0;
   final _dialogService = locator<DialogService>();
   // Service instance for Hive API
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
 
   // Updates the slider value and rebuilds the UI
   void updateSliderValue(double value) {
@@ -52,6 +52,16 @@ class CreateProfileViewModel extends BaseViewModel {
 
   void showdate() {
     _dialogService.showCustomDialog();
+  }
+
+  Future<void> loadingButton() async {
+    setBusy(true);
+    await Future.delayed(const Duration(seconds: 3)); // Simulating network call
+    setBusy(false);
+  }
+
+  Future<void> startLoadingButton() async {
+    await runBusyFuture(loadingButton());
   }
 
   Future<void> showpickDateDialog() async {

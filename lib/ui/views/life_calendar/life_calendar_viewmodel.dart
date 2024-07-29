@@ -8,6 +8,7 @@ import 'package:my_life_calendar_app/models/user_model.dart';
 import 'package:my_life_calendar_app/services/calendar_service.dart';
 import 'package:my_life_calendar_app/services/hive_service.dart';
 import 'package:my_life_calendar_app/ui/common/app_colors.dart';
+import 'package:my_life_calendar_app/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -23,7 +24,7 @@ class LifeCalendarViewModel extends BaseViewModel {
 
   // Service instances
   final _calendarApi = locator<CalendarServiceService>();
-  final _hiveApi = locator<HiveApiService>();
+  final _hiveApi = locator<HiveService>();
   final _navigation = locator<NavigationService>();
 
   // Value notifiers for life progress and weeks left
@@ -106,4 +107,18 @@ class LifeCalendarViewModel extends BaseViewModel {
       return 'Good Evening';
     }
   }
+
+  // String motivatnalTextGenerator(double lifeProgress) {
+  //   if (lifeProgress < 30) {
+  //     return ksMotivationForUnder30;
+  //   } else if (lifeProgress >= 30 && lifeProgress < 50) {
+  //     return ksMotivationForUnder50;
+  //   } else if (lifeProgress >= 50 && lifeProgress < 70) {
+  //     return ksMotivationForGreater50;
+  //   } else if (lifeProgress >= 70) {
+  //     return ksMotivationForUnder70;
+  //   } else {
+  //     return ksMotivationForGreater70;
+  //   }
+  // }
 }
