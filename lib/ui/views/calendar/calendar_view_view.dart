@@ -140,10 +140,10 @@ class CalendarViewView extends StackedView<CalendarViewViewModel> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                    "${viewModel.getFormatedMonth(viewModel.selectedyear!, viewModel.selectedweek!, index)}, ${viewModel.getFormatedDay(viewModel.selectedyear!, viewModel.selectedweek!, index)}",
+                                    "${viewModel.getFormatedMonth(index)}, ${viewModel.getFormatedDay(index)}",
                                     style: ktsHeader6),
                                 Text(
-                                  "(${viewModel.getFormatedDate(viewModel.selectedyear!, viewModel.selectedweek!, index)})",
+                                  "(${viewModel.getFormatedDate(index)})",
                                   style: ktsCaption, //caption1
                                 ),
                               ],

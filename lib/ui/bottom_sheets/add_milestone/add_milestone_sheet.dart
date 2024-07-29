@@ -74,9 +74,14 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
             ),
             verticalSpaceSmall,
             CustomTextFields(
-                controller: titleController,
-                focusNode: titleFocusNode,
-                hintText: ksMilestoneTitleHinttext),
+              controller: titleController,
+              focusNode: titleFocusNode,
+              hintText: ksMilestoneTitleHinttext,
+              maxLength: null,
+              minLines: null,
+              mixLines: null,
+              inputLength: 0,
+            ),
             verticalSpaceMedium,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -86,28 +91,14 @@ class AddMilestoneSheet extends StackedView<AddMilestoneSheetModel>
               ),
             ),
             verticalSpaceSmall,
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: TextFormField(
+            CustomTextFields(
                 controller: descriptionController,
                 focusNode: descriptionFocusNode,
-                inputFormatters: [LengthLimitingTextInputFormatter(200)],
-                maxLines: null,
-                minLines: 1,
-                maxLength: 100,
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
-                    hintText: ksMilestoneDescriptionHinttext,
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(width: 1.5),
-                        borderRadius: BorderRadius.all(Radius.circular(6)))),
-              ),
-            ),
+                hintText: "description...",
+                maxLength: null,
+                minLines: null,
+                mixLines: null,
+                inputLength: 200),
             verticalSpaceMedium,
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
